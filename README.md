@@ -1,2 +1,2 @@
-# syntheticpcap
-Simple tool to generate synthetic pcap data for testing purposes
+# Synthetic PCAP Generator
+Simple tool to generate synthetic PCAP data for testing purposes
