@@ -343,7 +343,7 @@ def main():
     start_time=get_start_time()
 
     if int(args.file_count) == 1:
-        file_name = 'sample_data/generated_0000.pcap'
+        file_name = 'generated_0000.pcap'
         duration = randint(int(args.min_duration), int(args.max_duration))
 
         create_pcap_file(start_time=start_time, 
@@ -351,7 +351,7 @@ def main():
                          file_name=file_name)
     else:
         for i in range(0, int(args.file_count)):
-            file_name = 'sample_data/generated_{0:06d}.pcap'.format(i)
+            file_name = 'generated_{0:06d}.pcap'.format(i)
 
             # get a random number
             duration = randint(int(args.min_duration), int(args.max_duration))
