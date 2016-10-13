@@ -91,3 +91,5 @@ ENV/
 
 # generated pcaps
 generated*.pcap
+samples.log
+samples.log.*

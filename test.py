@@ -7,6 +7,8 @@ import argparse
 import logging
 from logging.handlers import TimedRotatingFileHandler
 
+import trafficmodel
+
 OUTPUT_FILE = 'sample_data/test.pcap'
 START_TIME = 'Sun Oct 2 00:00:00 2016'
 INTERNAL_HOSTS = []
@@ -355,6 +357,26 @@ def main():
 
             # get a random number
             duration = randint(int(args.min_duration), int(args.max_duration))
+
+
+            # use the model to generate
+            next_time = time.localtime(start_time)
+
+            # get is weekend (Mon = 0, Sun = 6)
+            is_weekend = next_time.tm_wday > 4
+
+            # get float of hour (military time)
+            decimal_hour = next_time.tm_hour
+            mins = next_time.tm_min + (next_time.tm_sec / float(60))
+            decimal_hour += mins/60
+
+            # get result, round, and convert to int
+            duration = trafficmodel.get_duration_scalar(decimal_hour, is_weekend)
+            duration = int(round(duration*480))
+            logging.info("{0} - {1} - {2} - {3}".format(
+                time.strftime("%a, %d %b %Y %H:%M:%S", next_time), 
+                duration, decimal_hour, is_weekend))
+
             create_pcap_file(start_time=start_time, 
                             duration=duration, 
                             file_name=file_name)
