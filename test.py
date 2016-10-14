@@ -4,7 +4,6 @@ import time
 import calendar
 from random import randint
 import argparse
-import logging
 from logging.handlers import TimedRotatingFileHandler
 
 import trafficmodel

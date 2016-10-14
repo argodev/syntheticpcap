@@ -10,3 +10,12 @@ packet volume/parsing rates.
 It generates completely random MAC addresses and IP addresses. Any similarities
 between the addresses generated and real-life are completely conincidental.
 
+
+## pcap anonymizer
+
+Reads in a pcap and produces a new pcap with similar properties execpt that:
+- MAC addresses have been randomized
+- IP addresses have been randomized
+- All data in requests (L5+) is randomized
+- Optionally shift date/timestamps
+
