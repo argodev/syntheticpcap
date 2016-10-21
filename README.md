@@ -19,3 +19,12 @@ Reads in a pcap and produces a new pcap with similar properties execpt that:
 - All data in requests (L5+) is randomized
 - Optionally shift date/timestamps
 
+
+### Time Shifting
+- Allow the user to specify a value, in seconds, to shift the entire set 
+of packets. This value can be either positive or negative
+
+- allow the user to specify a string representation of a date (DEFINE) that
+the application will convert to/compare against the packet and build its 
+own 
+
